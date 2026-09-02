@@ -1,0 +1,44 @@
+﻿// """
+// Day 3 - Contains Duplicate
+// Link: https://leetcode.com/problems/contains-duplicate/
+
+// Pattern Trigger:
+//     [Write your pattern trigger here after solving]
+
+// Approach:
+//     - [Write your approach here]
+
+// Time Complexity:  O(?)
+// Space Complexity: O(?)
+// """
+
+
+// class Solution:
+//     def methodName(self, params):
+//         pass
+
+
+// # ---------- Test Cases ----------
+// if __name__ == "__main__":
+//     sol = Solution()
+//     # Add test cases here
+//     # assert sol.methodName(input) == expected
+//     # print("All tests passed!")
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        int n = nums.size();
+        set<int> p;
+
+        for(auto i:nums){
+            p.insert(i);
+        }
+
+        if(p.size() < n){
+            return true;
+        }
+
+        return false;
+    }
+};
