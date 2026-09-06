@@ -25,3 +25,23 @@ if __name__ == "__main__":
     # assert sol.methodName(input) == expected
     # print("All tests passed!")
 
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string p;
+
+        for(auto i:s){
+            if(isalnum(i))
+             p += tolower(i);
+             
+        }
+
+        for(int i=0;i<p.size();i++){
+            if(p[i] != p[p.size()-i-1]){
+            return false;
+            }
+        }
+
+        return true;
+    }
+};
