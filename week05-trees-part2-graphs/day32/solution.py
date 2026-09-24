@@ -69,3 +69,56 @@ public:
         return true;
     }
 };
+
+
+// kanhs algo 
+
+// So we need to create a graph and we need to create a inDegree as well so what are the things are dependent on that that eleemtent times it is dependen
+
+class Solution {
+public:
+    bool canFinish(int nC, vector<vector<int>>& pq) {
+        vector<vector<int>> graph(nC);
+        vector<int> inDegree(nC, 0);
+
+        for(auto i : pq){
+            int b = i[1];
+            int a = i[0];
+
+            graph[b].push_back(a);
+            inDegree[a]++;
+        }
+
+        queue<int> q;
+
+        int count = 0;
+
+        for(int i=0;i<nC;i++){
+
+            if(inDegree[i] == 0){
+                q.push(i);
+            }
+        }
+
+        while(!q.empty()){
+            int top = q.front();
+            q.pop();
+            count++;
+
+            for(int nex : graph[top]){
+                
+                inDegree[nex]--;
+
+                if(inDegree[nex] == 0){
+                    q.push(nex);
+                }
+            }
+
+
+
+        }
+
+
+        return count == nC;
+    }
+};
